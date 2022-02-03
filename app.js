@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -18,7 +19,7 @@ app.use(cookieLogger);
 
 app.use(session({
   store: new FileStore(),
-  secret: 'rtyujnku7i8yjiuhrgfg',
+  secret: process.env.SESSION_SECRET ?? 'qwerty',
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false },
@@ -37,4 +38,4 @@ app.get('/', (req, res) => {
 app.use('/posts', postsRouter);
 app.use('/users', userRouter);
 
-app.listen(3210);
+app.listen(process.env.PORT ?? 3000);
