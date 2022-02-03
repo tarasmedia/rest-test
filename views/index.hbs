@@ -1,0 +1,34 @@
+list of tweets
+
+<script defer src="/js/client.js"></script>
+
+<button id="fetchBtn">fetch!!!!</button>
+
+<div id="allposts">
+  {{#each allTweets}}
+
+  <div class="tweet" data-nomer="{{this.id}}"><b>{{this.author}}:</b> <span>{{this.text}}</span> 
+  <i class="fa fa-bath edit" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> <i
+      class="fa fa-bed delete" aria-hidden="true"></i></div>
+
+  {{/each}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit tweet</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="text" id="tweetText">
+        <input type="text" name="tweetId" id="tweetId" style="display:none">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal" aria-label="Close">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
